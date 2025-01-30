@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Geometrical Constructions</title>
+    <meta charset="utf-8"/>
+    
+    <style type="text/css">
+		.active_tool {background-color: gray}
+	</style>
+
+    <style type="text/css">
+		.question {
+			background-color: gray
+		}
+		.subquestion {
+			background-color: violet
+		}
+		.step {
+			background-color: floralwhite
+		}
+		.step > .pass {
+			background-color: greenyellow
+		}
+		.step > .fail {
+			background-color: tomato
+		}
+		.step > .error {
+			background-color: red
+		}
+	</style>
+
+</head>
+
+<body>
+
+<h3>Geometrical Construction Drawing - Student's Answer</h3>
+
+<br/>
+
+<input type="button" name="tool" class="btn btn-default" onclick="initTool('ruler')" value="Ruler">
+<input type="button" name="tool" class="btn btn-default" onclick="initTool('compass')" value="Compass">
+<input type="button" name="tool" class="btn btn-default" onclick="initTool('point')" value="Point">
+<input type="button" name="tool" class="btn btn-default" onclick="initTool('label')" value="Label">
+
+<br/>
+
+<div id="compass_settings" style="display:none;">
+	<input type="radio" name="compass-state" class="btn btn-default" onclick="lock()" value="Lock">Lock
+	<input type="radio" name="compass-state" class="btn btn-default" onclick="unlock()" value="Unlock" checked="true">Unlock
+	<input type="checkbox" class="btn btn-default" onclick="circle()" value="Circle">Circle
+</div>
+
+<br/>
+
+<input type="button" class="btn btn-default" onclick="undo()" value="Undo (Step Back)">
+<input type="button" class="btn btn-default" onclick="redo()" value="Redo (Step Forward)">
+
+<input type="button" class="btn btn-default" onclick="newsheet()" value="New Sheet">
+
+<input type="button" class="btn btn-default" onclick="exportSVG()" value="Validate">
+
+<br/><br/>
+
+<div id="instructionText" style="background: yellow; width: 75%;">Click on Ruler, Compass or Point</div>
+
+<br/>
+
+<b> Canvas: </b>
+<canvas id="sheet" style="left:10px;top:10px;bottom:10px; border:1px solid #000000;" height="1280" width="1000"></canvas>
+
+<!--
+<br/><br/>
+<b> SVG Representation: </b>
+<div id="svg_print" style="border-style: solid;"/>
+-->
+
+<br/><br/>
+<b> Results: </b>
+<div id="result_print" style="border-style: solid;"/>
+
+
+<script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="./js/fabric.js"></script>
+<script type="text/javascript" src="./js/events.js"></script>
+
+<!-- Extended shapes -->
+<script type="text/javascript" src="./js/UpperCaseText.class.js"></script>
+<script type="text/javascript" src="./js/Arc.class.js"></script>
+
+<!-- Tools for drawing -->
+<script type="text/javascript" src="./js/Point.js"></script>
+<script type="text/javascript" src="./js/Label.js"></script>
+<script type="text/javascript" src="./js/Ruler.js"></script>
+<script type="text/javascript" src="./js/Compass.js"></script>
+<script type="text/javascript" src="./js/CircleCompass.js"></script>
+
+<script type="text/javascript" src="./js/toolbox.js"></script>
+
+</body>
+
+</html>
